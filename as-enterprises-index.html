@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>As Enterprises</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial;
+  background:#0f172a;
+  color:white;
+}
+
+/* LOGIN */
+.login{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  text-align:center;
+}
+
+.login img{
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  margin-bottom:10px;
+  border:3px solid white;
+}
+
+input{
+  padding:10px;
+  margin:8px;
+  width:200px;
+}
+
+button{
+  padding:10px;
+  width:220px;
+  background:#f472b6;
+  border:none;
+  color:white;
+  margin-top:10px;
+}
+
+/* GALLERY */
+.gallery{
+  display:none;
+  padding:20px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+}
+
+.grid img{
+  width:100%;
+  border-radius:10px;
+}
+
+.links{
+  margin-top:20px;
+}
+
+.links a{
+  display:block;
+  margin:10px 0;
+  padding:12px;
+  background:#22c55e;
+  color:white;
+  text-align:center;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.links a.insta{
+  background:#e1306c;
+}
+</style>
+
+</head>
+<body>
+
+<div class="login" id="login">
+<img src="profile.jpg">
+<h2>AS ENTERPRISES</h2>
+<p style="color:#ccc">As Enterprises chunne ke shukriya ❤️</p>
+
+<input id="u" placeholder="Username">
+<input id="p" type="password" placeholder="Password">
+<button onclick="go()">Login</button>
+<p id="m"></p>
+</div>
+
+<div class="gallery" id="gal">
+<h2>Nighty Collection</h2>
+
+<div class="grid">
+<img src="nighty1.jpg">
+<img src="nighty2.jpg">
+<img src="nighty3.jpg">
+<img src="nighty4.jpg">
+<img src="nighty5.jpg">
+<img src="nighty6.jpg">
+</div>
+
+<div class="links">
+<a href="https://wa.me/919211698297" target="_blank">📲 Order on WhatsApp</a>
+<a href="https://instagram.com/sarfaraz_siddiqui8" target="_blank" class="insta">📸 Visit Instagram</a>
+</div>
+
+<p>UPI: 9211698297@ybl</p>
+</div>
+
+<script>
+function go(){
+  let u = document.getElementById('u').value;
+  let p = document.getElementById('p').value;
+
+  let users = [
+    {user:'afreen', pass:'pagal'},
+    {user:'aqsha', pass:'ayaaz'},
+    {user:'saiyed hussain', pass:'anwari'},
+    {user:'anwari', pass:'saiyed hussain'},
+    {user:'sarfaraz', pass:'SAR223344'}
+  ];
+
+  let valid = users.some(function(x){
+    return x.user === u && x.pass === p;
+  });
+
+  if(valid){
+    document.getElementById('login').style.display='none';
+    document.getElementById('gal').style.display='block';
+  } else {
+    document.getElementById('m').innerText='Wrong login';
+  }
+}
+</script>
+
+</body>
+</html>
